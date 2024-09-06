@@ -71,4 +71,11 @@ class Messaging
 
         return $response->getBody();
     }
+
+    public function getSenderNames()
+    {
+        $endpoint = 'sms/identities';
+        $response = $this->client->get(sprintf('%s/%s', $this->baseUrl, $endpoint), $this->header);
+        return $response->getBody();
+    }
 }

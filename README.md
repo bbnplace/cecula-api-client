@@ -1,6 +1,36 @@
 # Cecula API Client
 Cecula API Client is a simple client for connecting your PHP application to Cecula Messaging platform to send SMS via A2P channel or your hosted sim.
 
+## Methods
+- sendSms(array $data)
+Send an SMS to a single or multiple recipients.
+
+Data Array Keys:
+- recipients (array): An array of recipients' mobile numbers. 
+- text (string): Message content.
+- sender (string): Pre-registered sender name.
+
+Sample
+```
+$data = [
+            'sender' => 'SENDER', // Note: this has to be pre-registered and approved
+            'recipients' => ['2348XXXXXXXXX', '2348XXXXXXXXX'],
+            'text' => 'Happy for another day',
+        ];
+```
+Response: Status of the message delivery.
+sendBulkMessage(array $recipients, $message)
+Send SMS to multiple recipients.
+
+Parameters:
+$recipients (array): List of phone numbers.
+$message (string): Message content.
+Response: Status of the bulk message delivery.
+getBalance()
+Retrieve the available balance for sending SMS.
+
+Response: Current SMS balance on the Cecula platform.
+
 ## How to Use
 Import Cecula API Client to your application using composer.
 
